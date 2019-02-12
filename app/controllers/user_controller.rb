@@ -7,6 +7,9 @@ class UserController < ApplicationController
 
     @user = User.new(user_params)
     if @user.save
+      flash.now[:alert] = "User created Succesfully"
+    else
+      flash.now[:alert] = "Error please enter correct details"
     end
     render "index"
 
